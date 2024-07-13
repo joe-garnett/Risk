@@ -1,4 +1,4 @@
-from player import Player
+from src.player import Player
 
 class Territory:
     def __init__(self, name, occupied_by=None, num_troops=0):

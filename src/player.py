@@ -16,7 +16,7 @@ class Player:
         
 
         # Attribute uniqueness
-        if self.color not in self.possible_colors:
+        if color not in self.possible_colors:
             raise ValueError(f"Player color must be one of the following: {list(self.possible_colors)}")
 
         
