@@ -1,11 +1,16 @@
 import unittest
 from src.territory import Territory
+from src.player import Player
 
 class TestTerritory(unittest.TestCase):
+    def setUp(self):
+        self.player = Player(name="John", color="red")
+
+
     def test_standard_init(self):
-        territory = Territory("Iceland", "Player1", 1)
+        territory = Territory("Iceland", self.player, 1)
         self.assertEqual(territory.name, "Iceland")
-        self.assertEqual(territory.occupied_by, "Player1")
+        self.assertEqual(territory.occupied_by, self.player)
         self.assertEqual(territory.num_troops, 1)
     
 
@@ -17,7 +22,7 @@ class TestTerritory(unittest.TestCase):
 
     def test_occupied_no_troops(self):
         with self.assertRaises(ValueError):
-            territory = Territory("Iceland", "Player1", 0)
+            territory = Territory("Iceland", self.player, 0)
 
 
     def test_unoccupied_troops(self):
@@ -25,5 +30,20 @@ class TestTerritory(unittest.TestCase):
             territory = Territory("Iceland", None, 1)
 
 
+    def test_erroneous_name_type(self):
+        with self.assertRaises(TypeError):
+            territory = Territory(4, self.player, 1)
+
+
+    def test_erroneous_occupied_by_type(self):
+        with self.assertRaises(TypeError):
+            territory = Territory("Iceland", "Player1", 1)
+
+
+    def test_erroneous_num_troops_type(self):
+        with self.assertRaises(TypeError):
+            territory = Territory("Iceland", self.player, "1")
+
+    
 if __name__ == '__main__':
     unittest.main()
