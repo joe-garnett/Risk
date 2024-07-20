@@ -1,6 +1,5 @@
 from src.territory import Territory
 class Continent:
-    
     def __init__(self, name, territories, troop_bonus):
         # Type checks
         if not isinstance(name, str):
@@ -20,6 +19,9 @@ class Continent:
         # Attribute checks
         if not name:
             raise ValueError("Name cannot be empty")
+        
+        if not territories:
+            raise ValueError("List of territories cannot be empty")
 
         if troop_bonus < 0:
             raise ValueError("Troop bonus must be > 0")
@@ -30,5 +32,12 @@ class Continent:
         self.territories = territories
         self.troop_bonus = troop_bonus
 
+
     def occupied_by(self):
-        pass
+        player = self.territories[0].occupied_by
+        
+        for territory in self.territories:
+            if territory.occupied_by != player:
+                return None
+            
+        return player

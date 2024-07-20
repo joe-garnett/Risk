@@ -1,7 +1,6 @@
 class Player:
     possible_colors = {"red", "yellow", "blue", "purple", "orange", "green", "pink"}
-
-
+    
     def __init__(self, name, color) -> None:
         # Type checks
         if not isinstance(name, str):
@@ -23,3 +22,9 @@ class Player:
         # Assignment
         self.name = name  
         self.color = color
+
+
+    def __eq__(self, other):
+        if isinstance(other, Player):
+            return self.color == other.color
+        return False
