@@ -28,3 +28,5 @@ class Player:
         if isinstance(other, Player):
             return self.color == other.color
         return False
+    
+    # Maybe introduce getters and setters but may be too verbose for now

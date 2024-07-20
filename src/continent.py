@@ -41,3 +41,5 @@ class Continent:
                 return None
             
         return player
+    
+    # Maybe introduce getters and setters but may be too verbose for now

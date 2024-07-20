@@ -18,3 +18,5 @@ class Card:
 
         # Assignment
         self.type = card_type
+
+    # Maybe introduce getters and setters but may be too verbose for now

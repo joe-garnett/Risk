@@ -25,3 +25,5 @@ class Territory:
         self.name = name
         self.occupied_by = occupied_by
         self.num_troops = num_troops
+
+    # Maybe introduce getters and setters but may be too verbose for now
