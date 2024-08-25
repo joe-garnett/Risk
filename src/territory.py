@@ -1,6 +1,7 @@
 from src.player import Player
 
 class Territory:
+    # Need to validate territory names and territory names are unique
     def __init__(self, name, occupied_by=None, num_troops=0):
         # Type checks
         if not isinstance(name, str):
